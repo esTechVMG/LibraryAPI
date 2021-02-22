@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Loan extends Model
+class Borrow extends Model
 {
     function user(){
         return $this->hasOne('App\User');

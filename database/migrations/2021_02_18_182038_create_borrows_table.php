@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLoansTable extends Migration
+class CreateBorrowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateLoansTable extends Migration
      */
     public function up()
     {
-        Schema::create('loans', function (Blueprint $table) {
+        Schema::create('borrows', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
@@ -30,6 +30,6 @@ class CreateLoansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loans');
+        Schema::dropIfExists('borrows');
     }
 }
