@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::apiResources([
-    '/users' => 'UserController',
-    '/books' => 'BookController',
-    '/borrows' => 'BorrowController',
+    'users' => 'User\UserController',
+    'users.borrows' => 'User\UserBorrowController',
+    'users.books' => 'User\UserBookController',
+    'books' => 'Book\BookController',
+    'books.borrows' => 'Book\BookBorrowController',
+    'books.users' => 'Book\BookUserController',
+    'borrows' => 'Borrow\BorrowController',
+    'borrows.users' => 'Borrow\BorrowUserController',
+    'borrows.books' => 'Borrow\BorrowBookController',
 ]);
