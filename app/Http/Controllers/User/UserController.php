@@ -56,9 +56,9 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        return User::findOrFail($id);
+        return $this->showOne($user);
     }
 
     /**
