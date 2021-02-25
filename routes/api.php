@@ -24,3 +24,4 @@ Route::apiResources([
     'borrows.users' => 'Borrow\BorrowUserController',
     'borrows.books' => 'Borrow\BorrowBookController',
 ]);
+Route::post('login', 'User\UserController@login')->name('login');
