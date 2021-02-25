@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Redirect;
-use App\Book;
-use App\Http\Resources\BookResource;
+use App\Borrow;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class BorrowController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return Book::all();
+        //
     }
 
     /**
@@ -27,35 +25,28 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = array(
-            'title'       => 'required|max:100|string',
-            'description'      => 'required|max:1000|string',
-            'quantity' => 'required|numeric|max:9'
-        );
-        $request->validate($rules);
-        $book = Book::create($request->only('title', 'description', 'quantity'));
-        return Redirect::to("api/books/$book->id");
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Book  $book
+     * @param  \App\Borrow  $borrow
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Borrow $borrow)
     {
-        return $book = Book::findOrFail($id);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Book  $book
+     * @param  \App\Borrow  $borrow
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, Borrow $borrow)
     {
         //
     }
@@ -63,10 +54,10 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Book  $book
+     * @param  \App\Borrow  $borrow
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy(Borrow $borrow)
     {
         //
     }
