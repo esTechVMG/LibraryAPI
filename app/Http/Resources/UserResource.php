@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use App\Http\Resources\BaseResource;
 use App\Helpers\Token;
+use App\User;
 
 class UserResource extends BaseResource
 {
@@ -25,7 +26,7 @@ class UserResource extends BaseResource
             ],
         ];
     }
-	
+    
 	public function toArray($request)
     {
 		$transformedAttributes = parent::toArray($request);
