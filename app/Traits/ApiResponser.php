@@ -65,8 +65,8 @@ trait ApiResponser
 
     function paginateCollection(Collection $collection)
     {
-        $perPage = intval($this->determinePageSize());
-
+        $perPage = $this->determinePageSize();
+        $perPage = intval($perPage['porpag']);
         $page = intval(LengthAwarePaginator::resolveCurrentPage());
 
         $results = $collection->forPage($page, $perPage);
@@ -84,11 +84,11 @@ trait ApiResponser
     function determinePageSize()
     {
         $rules = [
-            'page' => 'integer|min:2|max:50',
+            'porpag' => 'integer|min:2|max:50',
         ];
 
         $perPage = request()->validate($rules);
 
-        return isset($perPage['page'])  ? $perPage : 5;
+        return isset($perPage['porpag'])  ? $perPage : 5;
     }
 }
