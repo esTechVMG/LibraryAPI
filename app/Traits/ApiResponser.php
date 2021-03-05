@@ -89,6 +89,6 @@ trait ApiResponser
 
         $perPage = request()->validate($rules);
 
-        return isset($perPage['porpag'])  ? $perPage : 5;
+        return isset($perPage['porpag'])  ? $perPage : $perPage = ['porpag' => 5];
     }
 }
