@@ -9,6 +9,6 @@ $factory->define(Book::class, function (Faker $faker) {
     return [
         'title' => $faker->words(8,true),
         'description' => $faker->paragraph(1,true),
-        'quantity' => $faker->randomNumber(9,false)
+        'is_available' => $faker->boolean() ? 1:0 ,
     ];
 });

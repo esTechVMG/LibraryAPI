@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +12,21 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::apiResources([
-    'users' => 'User\UserController',
-    'users.borrows' => 'User\UserBorrowController',
-    'users.books' => 'User\UserBookController',
-    'books' => 'Book\BookController',
-    'books.borrows' => 'Book\BookBorrowController',
-    'books.users' => 'Book\BookUserController',
-    'borrows' => 'Borrow\BorrowController',
-    'borrows.users' => 'Borrow\BorrowUserController',
-    'borrows.books' => 'Borrow\BorrowBookController',
-]);
-Route::post('login', 'User\UserController@login')->name('login');
+
+Route::prefix('v1')->group(function () {
+    Route::apiResource('books', 'Book\BookController', ['only' => ['index', 'show', 'store']]);
+    Route::apiResource('books.borrows', 'Book\BookBorrowController', ['only' => ['index']]);
+    Route::apiResource('books.borrows.users', 'Book\BookBorrowUserController', ['only' => ['index', 'show']]);
+    Route::apiResource('books.users', 'Book\BookUserController', ['only' => ['index']]);
+
+    Route::apiResource('users', 'User\UserController', ['only' => ['index', 'show', 'store']]);
+    Route::apiResource('users.borrows', 'User\UserBorrowController', ['only' => ['index', 'show']]);
+    Route::apiResource('users.borrows.books', 'User\UserBorrowBookController', ['only' => ['index', 'show']]);
+    Route::apiResource('users.books', 'User\UserBookController', ['only' => ['index', 'show']]);
+
+    Route::apiResource('borrows', 'Borrow\BorrowController', ['only' => ['index', 'show', 'store']]);
+    Route::apiResource('borrows.books', 'Borrow\BorrowBookController', ['only' => ['index']]);
+    Route::apiResource('borrows.users', 'Borrow\BorrowController', ['only' => ['index']]);
+    
+    Route::post('login', 'User\UserController@login')->name('login');
+});

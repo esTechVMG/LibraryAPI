@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Book;
-
-use Illuminate\Support\Facades\Redirect;
 use App\Book;
 use App\Http\Resources\BookResource;
 use Illuminate\Http\Request;
@@ -10,6 +8,10 @@ use App\Http\Controllers\Controller;
 
 class BookController extends Controller
 {
+    /*public function __construct()
+	{
+		//$this->middleware('auth');
+	}*/
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +19,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        return Book::all();
+        return $this->showAll(Book::all());
     }
 
     /**
@@ -31,11 +33,11 @@ class BookController extends Controller
         $rules = array(
             'title'       => 'required|max:100|string',
             'description'      => 'required|max:1000|string',
-            'quantity' => 'required|numeric|max:9'
+            'quantity' => 'required|numeric|max:9000'
         );
         $request->validate($rules);
         $book = Book::create($request->only('title', 'description', 'quantity'));
-        return Redirect::to("api/books/$book->id");
+        return $this->showOne($book);
     }
 
     /**
@@ -44,31 +46,8 @@ class BookController extends Controller
      * @param  \App\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        return $book = Book::findOrFail($id);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Book $book)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Book $book)
-    {
-        //
+        return $this->showOne($book);
     }
 }

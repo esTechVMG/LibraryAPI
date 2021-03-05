@@ -9,6 +9,7 @@ use App\Http\Resources\UserResource;
 
 class User extends Authenticatable
 {
+    protected $primaryKey = 'id';
     use Notifiable;
     public $resource = UserResource::class;
 
@@ -38,9 +39,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function books(){
-        return $this->hasManyThrough(Book::class,Borrow::class);
-    }
+    
 
     public static function by_field($key, $value)
     {
@@ -64,5 +63,9 @@ class User extends Authenticatable
 
         $data = $token->decode($header_authorization);
         return !empty(self::by_field('email', $data->email));
+    }
+
+    public function borrows(){
+        return $this->hasMany(Borrow::class);
     }
 }

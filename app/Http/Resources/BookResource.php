@@ -10,7 +10,7 @@ class BookResource extends BaseResource
         'id' => 'identifier',
         'title' => 'title',
         'description' => 'description',
-        'quantity' => 'quantity',
+        'is_available' => 'is_available',
     ];
 
     public function generateLinks($request)

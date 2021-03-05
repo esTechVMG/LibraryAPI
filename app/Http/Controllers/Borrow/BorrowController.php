@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Borrow;
 
 use App\Borrow;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BorrowResource;
+use App\User;
+use Illuminate\Http\Request;
 
 class BorrowController extends Controller
 {
@@ -15,9 +17,8 @@ class BorrowController extends Controller
      */
     public function index()
     {
-        //
+        return $this->showAll(Borrow::all());
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -26,7 +27,7 @@ class BorrowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //IMPLEMENTATION NEEDED
     }
 
     /**
@@ -37,29 +38,6 @@ class BorrowController extends Controller
      */
     public function show(Borrow $borrow)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Borrow  $borrow
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Borrow $borrow)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Borrow  $borrow
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Borrow $borrow)
-    {
-        //
+        return $this->showOne($borrow);
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Borrow;
 
+use App\Book;
 use App\Borrow;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class BorrowBookController extends Controller
 {
@@ -13,74 +14,19 @@ class BorrowBookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Borrow $borrow)
     {
-        //
+        redirect()->route('books.show',$borrow->book);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
+    
     /**
      * Display the specified resource.
      *
      * @param  \App\Borrow  $borrow
      * @return \Illuminate\Http\Response
      */
-    public function show(Borrow $borrow)
+    public function show(Borrow $borrow, Book $book)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Borrow  $borrow
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Borrow $borrow)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Borrow  $borrow
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Borrow $borrow)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Borrow  $borrow
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Borrow $borrow)
-    {
-        //
+        return $this->showOne($book);
     }
 }
