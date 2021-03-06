@@ -23,7 +23,7 @@ class UserController extends Controller
 
     public function __construct()
 	{
-		//$this->middleware('auth')->except('store','login');
+		$this->middleware('auth')->except('store','login');
 	}
 
 	public function login(Request $request)

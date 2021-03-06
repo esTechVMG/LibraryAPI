@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class BookBorrowController extends Controller
 {
+    public function __construct()
+	{
+		$this->middleware('auth')->only('store');
+	}
     /**
      * Display a listing of the resource.
      *
