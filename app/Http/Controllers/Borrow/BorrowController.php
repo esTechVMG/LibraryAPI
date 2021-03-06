@@ -59,4 +59,12 @@ class BorrowController extends Controller
     {
         return $this->showOne($borrow);
     }
+
+    public function destroy(Borrow $borrow){
+        $book = $borrow->book;
+        $book->is_available = 1;
+        $book->save();
+        $borrow->delete();
+        return $this->errorResponse('Borrow deleted successfully',200);
+    }
 }

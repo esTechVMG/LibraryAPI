@@ -13,14 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::apiResource('books', 'Book\BookController', ['only' => ['index', 'show', 'store']]);
-Route::apiResource('books.borrows', 'Book\BookBorrowController', ['only' => ['index','show']]);
+Route::apiResource('books.borrows', 'Book\BookBorrowController', ['only' => ['index','show','store']]);
 Route::apiResource('books.borrows.users', 'Book\BookBorrowUserController', ['only' => ['index']]);
 
 Route::apiResource('users', 'User\UserController', ['only' => ['index', 'show', 'store']]);
 Route::apiResource('users.borrows', 'User\UserBorrowController', ['only' => ['index', 'show','store']]);
 Route::apiResource('users.borrows.books', 'User\UserBorrowBookController', ['only' => ['index']]);
 
-Route::apiResource('borrows', 'Borrow\BorrowController', ['only' => ['index', 'show', 'store']]);
+Route::apiResource('borrows', 'Borrow\BorrowController', ['only' => ['index', 'show', 'store','destroy']]);
 Route::apiResource('borrows.books', 'Borrow\BorrowBookController', ['only' => ['index']]);
 Route::apiResource('borrows.users', 'Borrow\BorrowUserController', ['only' => ['index']]);
 
