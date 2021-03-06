@@ -15,20 +15,7 @@ class BorrowUserController extends Controller
      * @param \App\Borrow
      * @return \Illuminate\Http\Response
      */
-    public function index(Borrow $borrow)
-    {
-        $users = $borrow->user;
-        return $this->showAll($users);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Borrow  $borrow
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Borrow $borrow, User $user)
-    {
-        return $this->showOne($user);  
-    }
+    public function index(Borrow $borrow){
+        return $this->showAll(collect([$borrow->user]));
+    }    
 }

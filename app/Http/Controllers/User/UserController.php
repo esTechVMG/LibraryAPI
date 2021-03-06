@@ -11,7 +11,6 @@ use App\Traits\ApiResponser;
 
 class UserController extends Controller
 {
-    //use ApiResponser;
     /**
      * Display a listing of the resource.
      *
@@ -71,11 +70,7 @@ class UserController extends Controller
         $token = new Token($data_token);
         $token = $token->encode();
         $user = User::create($data);
-        $this->showOne($user);
-		/*return response()->json([
-            "message" => "Cuenta creada con exito",
-            "code" => 201,
-        ], 201);*/
+        return $this->showOne($user,201);
     }
     /**
      * Display the specified resource.

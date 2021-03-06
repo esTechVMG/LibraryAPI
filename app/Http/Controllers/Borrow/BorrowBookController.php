@@ -14,19 +14,8 @@ class BorrowBookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Borrow $borrow)
-    {
-        redirect()->route('books.show',$borrow->book);
+    public function index(Borrow $borrow){
+        return $this->showAll(collect([$borrow->book]));
     }
-    
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Borrow  $borrow
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Borrow $borrow, Book $book)
-    {
-        return $this->showOne($book);
-    }
+
 }

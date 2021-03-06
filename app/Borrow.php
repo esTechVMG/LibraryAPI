@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Borrow extends Model
 {
+    protected $fillable = [
+        'user_id', 'book_id',
+    ];
     public $resource = BorrowResource::class;
     protected $primaryKey = 'id';
     function user(){
@@ -16,7 +19,4 @@ class Borrow extends Model
     function book(){
         return $this->belongsTo(Book::class,'book_id');
     }
-    protected $hidden = [
-        
-    ];
 }

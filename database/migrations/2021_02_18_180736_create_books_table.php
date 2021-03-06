@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('title',100);
             $table->string('description',1000);
-            $table->bigInteger('is_available',false,true)->default(1);
+            $table->boolean('is_available',false,true)->default(1);
         });
     }
 

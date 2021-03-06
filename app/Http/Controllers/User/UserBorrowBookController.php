@@ -15,12 +15,7 @@ class UserBorrowBookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user, Borrow $borrow)
-    {
-        $book = $borrow->book;
-        return $this->showOne($book);
-    }
-    public function show(User $user, Borrow $borrow, Book $book){
-        return $this->showOne($book);
+    public function index(User $user, Borrow $borrow){
+        return $this->showAll(collect([$borrow->book]));
     }
 }
