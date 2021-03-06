@@ -1,0 +1,617 @@
+{
+	"info": {
+		"_postman_id": "d64b9d26-e91e-41f0-a88d-8fa804435fe3",
+		"name": "LibraryAPI White Box Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "users.store (Register)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "full_name",
+									"value": "Vicente Maroto",
+									"type": "text"
+								},
+								{
+									"key": "email_address",
+									"value": "vicente.maroto@escuelaestech.es",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Estech20",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Estech20",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/users",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "vicente.maroto@escuelaestech.es",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Estech20",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/login",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.borrows.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "book_id",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/users/4/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"4",
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "67",
+									"disabled": true
+								},
+								{
+									"key": "porpag",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/2",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.borrows.index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/2/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"2",
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.borrows.show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/17/borrows/1",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"17",
+								"borrows",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.borrows.books.index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/17/borrows/1/books/",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"17",
+								"borrows",
+								"1",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "books.index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/books",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "116",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/1",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.borrows.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/45/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"45",
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.borrows.show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/45/borrows/2",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"45",
+								"borrows",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.borrows.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "20",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/books/46/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"46",
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.borrows.users.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/45/borrows/2/users",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"45",
+								"borrows",
+								"2",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Hello World",
+									"description": "Titulo del Libro",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet",
+									"description": "Descripcion del Libro",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "2432",
+									"description": "Cantidad  de libros disponible",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/books",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrow",
+			"item": [
+				{
+					"name": "borrows.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/1",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "book_id",
+									"value": "16",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{vhost}}/borrows/15",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.books.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/1/books",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.users.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/1/users",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

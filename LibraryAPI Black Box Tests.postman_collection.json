@@ -1,0 +1,731 @@
+{
+	"info": {
+		"_postman_id": "7728f341-b2ab-4591-9a57-cde6c7037edb",
+		"name": "LibraryAPI Black Box Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "users.store (Register)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "full_name",
+									"value": "Vicente Maroto",
+									"type": "text"
+								},
+								{
+									"key": "email_address",
+									"value": "vicente.maroto@escuelaestech.es",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "kefjigfjgkt",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "Estech20f",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/users",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "\" or \"\"=\"",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "\" or \"\"=\"",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/login",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.borrows.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "book_id",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/users/4/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"4",
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "67",
+									"disabled": true
+								},
+								{
+									"key": "porpag",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/245465",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"245465"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.borrows.index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/2/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"2",
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.borrows.show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/17/borrows/1",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"17",
+								"borrows",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users.borrows.books.index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/users/17/borrows/1/books/",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"17",
+								"borrows",
+								"1",
+								"books",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "books.index",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{vhost}}/books/?porpag=13567",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "116",
+									"disabled": true
+								},
+								{
+									"key": "porpag",
+									"value": "13567"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/13567",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"13567"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.borrows.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/45/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"45",
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.borrows.show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/45/borrows/2",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"45",
+								"borrows",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.borrows.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "105; DROP TABLE users;",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/books/46/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"46",
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.borrows.users.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/45/borrows/2/users",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"45",
+								"borrows",
+								"2",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "394.3",
+									"description": "Titulo del Libro",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "2355.4847",
+									"description": "Descripcion del Libro",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "2432",
+									"description": "Cantidad  de libros disponible",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/books",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books.store Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris lorem, rutrum et sodales vel, eleifend sed elit. Morbi maximus libero vitae justo tincidunt pharetra. Donec non nisi libero. Mauris congue risus quis congue pretium. Morbi ultricies luctus justo, eu eleifend massa condimentum at. Nulla laoreet lacus ligula, in consequat orci sagittis vitae. Vestibulum iaculis, neque ut molestie posuere, sem neque feugiat turpis, ut mollis arcu mi eget diam. Suspendisse est orci, ultrices in gravida in, volutpat nec mi.\nDonec accumsan nunc a sapien dignissim, ac suscipit odio aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla sit amet nisl tincidunt, auctor urna vulputate, ultrices est. Donec ut vestibulum mauris, id egestas nibh. Donec dictum arcu vel maximus scelerisque. Mauris accumsan sem sit amet dictum tristique. Sed consequat purus iaculis erat dictum pharetra eu eu magna. Donec auctor sodales ligula ac dapibus. Donec quis nulla consequat, imperdiet felis in, ullamcorper justo. Suspendisse potenti. Proin pretium enim at elit ultrices, vel gravida massa eleifend. Vestibulum tristique, mauris pellentesque semper aliquam, massa mauris dapibus nibh, ac dapibus mauris nibh vel ipsum. Duis lorem urna, suscipit malesuada quam a, aliquet aliquet eros. Proin auctor tempor magna, vel blandit libero elementum non. Curabitur condimentum dolor vel purus placerat, vitae vestibulum mi luctus.\nMauris quis neque vel diam lobortis sagittis nec in ipsum. Duis convallis hendrerit maximus. Aliquam finibus placerat ullamcorper. Nunc varius vestibulum condimentum. Nunc posuere justo a neque suscipit aliquam. Sed vehicula, velit nec tempor imperdiet, risus mauris pulvinar dolor, vel cursus nisi quam at lorem. Fusce venenatis tortor iaculis, semper diam nec, dignissim ex. Sed suscipit semper ante, sagittis posuere est laoreet a.\nEtiam ut dapibus lorem. Morbi sagittis et enim sit amet dapibus. Cras feugiat at justo ut convallis. Nunc massa neque, gravida et leo a, interdum interdum nulla. Integer ornare in tellus a convallis. Duis et tincidunt metus. Phasellus gravida dignissim nisi, at posuere metus congue in. In eget varius lacus. Sed tempor est at urna malesuada tristique. Cras pharetra, odio eu tempus iaculis, odio ante sodales ante, vel ullamcorper nisi libero nec leo. Praesent et ipsum vel justo blandit volutpat. Sed quis arcu in nulla vestibulum ornare.\nPraesent ac sapien a neque sagittis rhoncus sed sed neque. Morbi tempor, orci et blandit pellentesque, enim est finibus erat, non vulputate erat dolor eget turpis. Sed at efficitur purus. Sed hendrerit erat id rutrum malesuada. Nullam convallis orci et risus tincidunt, quis pretium turpis pulvinar. Mauris id rutrum risus, at accumsan purus. Proin maximus elementum odio vitae euismod. Quisque vitae lectus vel neque feugiat convallis in sed nunc. Curabitur nec augue in nunc hendrerit molestie at at lectus. Integer volutpat scelerisque erat id faucibus. Maecenas congue urna diam, non ullamcorper lacus elementum eget. Nunc a nisi id nunc porta malesuada. Nunc tempus ullamcorper lectus, eget mattis libero rhoncus nec. Aliquam eu mi sodales, cursus quam ut, rutrum lorem. Quisque pulvinar est in imperdiet dapibus.\nIn hac habitasse platea dictumst. Sed in mattis augue. In hac habitasse platea dictumst. Sed interdum, enim nec eleifend dictum, tortor ante vehicula tellus, a porttitor risus tellus a augue. Nullam varius non est et tincidunt. Sed nec risus orci. Maecenas euismod leo ut mauris dignissim, vel fringilla tortor imperdiet.\nVivamus maximus eget ante nec vulputate. Etiam justo libero, aliquet sed purus vel, feugiat auctor ante. Nam pharetra laoreet lectus, et accumsan lectus. Mauris porttitor volutpat semper. Curabitur non posuere sapien, ut efficitur odio. Fusce in nulla sed lacus sagittis feugiat. Aenean quis aliquet arcu. Phasellus lobortis cursus metus in placerat. Curabitur euismod est vel purus rhoncus, eu ullamcorper ante vestibulum. Nunc finibus purus ante, ac posuere eros sagittis et. Nulla imperdiet quis nulla quis tincidunt. Mauris vestibulum velit id velit iaculis luctus. Suspendisse egestas, leo nec sollicitudin bibendum, lacus dui ornare libero, ut feugiat leo elit at ligula. Nullam rhoncus sapien vel velit bibendum, ornare dapibus libero pellentesque. Mauris eget tristique erat. Sed et metus nec nulla pharetra sodales non id elit.\nNam molestie risus lacus, vel maximus diam interdum non. Integer in felis non risus aliquam ultricies. Ut sit amet aliquam quam, tincidunt varius tortor. Proin sit amet luctus augue. Sed ut odio ut leo pulvinar molestie. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus luctus pellentesque cursus.\nUt in orci massa. Nunc rhoncus eros sed justo elementum, eu luctus nisi tincidunt. Cras ac elementum nunc, in viverra urna. Nulla facilisi. Nunc sollicitudin id enim in ullamcorper. Integer congue aliquet volutpat. Duis sem lorem, porta vel urna at, feugiat volutpat nisi.\nDuis eget semper lacus, eget interdum eros. Quisque mollis in ante quis luctus. Sed ac consequat turpis. Aenean id scelerisque enim, a ullamcorper neque. Maecenas et suscipit libero. Etiam at dolor non erat vulputate auctor. Nullam pellentesque tortor molestie convallis faucibus. Nullam lacinia, justo viverra egestas efficitur, felis lectus tristique elit, ut porta nunc neque sed magna. Aliquam feugiat interdum semper. Integer vitae justo dapibus, dignissim sapien at, hendrerit augue. Ut in magna vitae neque efficitur pulvinar.\nClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Cras turpis dui, hendrerit vitae tincidunt id, euismod nec nunc. Mauris nec nisl in felis convallis vestibulum. Cras sit amet purus volutpat, facilisis augue quis, volutpat nunc. Cras auctor maximus tortor, in varius neque condimentum sed. Vestibulum eget lorem erat. Duis volutpat ligula sit amet erat fermentum, id venenatis nisi venenatis. Vivamus tincidunt, arcu et eleifend consectetur, quam lectus commodo justo, ac tincidunt urna arcu quis erat.\nDonec sed metus vitae nulla lacinia ullamcorper. Aenean eu arcu quis lectus luctus consectetur. Nam elementum elit nibh, cursus semper augue dictum id. Donec vel ipsum at sapien vulputate accumsan. Cras hendrerit orci quis nisi vehicula aliquam. Etiam ornare urna lacus, vitae maximus mi blandit et. Curabitur vel cursus orci, sagittis aliquet libero. Etiam quis iaculis felis. Pellentesque vel lectus dui. Mauris feugiat orci eget enim faucibus pulvinar. Aliquam sodales lectus eget massa cursus, nec mattis turpis elementum. Aliquam tristique augue ut ullamcorper tempus. In iaculis mattis tincidunt. Pellentesque vel ornare libero, eget accumsan ante. Morbi ut convallis massa, et cursus ipsum.\nIn sollicitudin tellus et ipsum luctus semper. Praesent mattis varius nulla, in bibendum ligula bibendum quis. Curabitur auctor mattis leo eget ultrices. Vivamus eget varius tellus. Praesent porttitor bibendum diam, eget ultricies tortor dapibus sit amet. Nulla a diam vitae lacus gravida congue. Suspendisse malesuada nunc turpis. Integer ipsum tortor, dictum in vestibulum sed, ullamcorper ac nisi. Curabitur enim diam, rutrum eu tincidunt ac, volutpat sit amet justo.\nSed condimentum pharetra nisl, vel feugiat augue sagittis eget. Nunc interdum mollis tortor at luctus. Aliquam dignissim, lectus et lobortis tincidunt, ex nisl tincidunt dui, eget tempus metus dui ut lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus nulla quam, iaculis eu varius in, scelerisque eget lacus. Sed volutpat accumsan odio, a aliquam risus pharetra a. Aenean nec elit libero. Nullam mattis lorem ultrices porttitor mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan neque orci, a posuere mauris finibus eu. Maecenas ante velit, mollis in ultrices vitae, molestie ac lectus. Vivamus urna felis, cursus et suscipit vel, venenatis dapibus nunc. Nam eu condimentum dolor. Curabitur blandit felis eu nunc porttitor ullamcorper.\nCras placerat neque dignissim aliquam venenatis. Ut nec felis nec odio vulputate convallis. Suspendisse malesuada mauris quis justo malesuada elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc lectus enim, laoreet vel egestas non, aliquam ut erat. Curabitur eget mi congue mauris sagittis tempor faucibus et risus. Nulla rutrum, neque id ultricies bibendum, orci erat interdum dui, vel cursus enim lectus a felis. Quisque posuere, felis sit amet tincidunt feugiat, magna enim maximus quam, in scelerisque metus lorem eget nisl.\nDonec vulputate arcu non elit feugiat gravida. Mauris pulvinar neque vel ullamcorper fringilla. Vestibulum commodo, odio ut dignissim tristique, ante turpis venenatis mi, ut bibendum mauris tellus sed mi. Ut tristique sapien quis ullamcorper laoreet. Vivamus ac rutrum lorem. In blandit ornare neque, eu imperdiet turpis suscipit in. Integer mattis sem urna, vitae elementum metus luctus eget. Donec a lobortis sapien. Nunc in ante at turpis porttitor ornare quis et felis. Etiam diam neque, congue et vestibulum id, consectetur ut mi. Suspendisse nulla risus, congue sed dictum ac, facilisis vel odio. Nunc ultrices, lacus vitae tristique interdum, dui tortor lacinia sem, sed elementum est lorem in felis. Morbi ac neque ut lacus mollis tristique. Proin eget eros eu ipsum ullamcorper sodales eu sit amet mi. Vivamus porta luctus ipsum, a gravida ligula facilisis eu.\nMorbi a interdum tellus. Nam egestas lacinia nibh a blandit. Nullam vel egestas ex. Suspendisse lacinia lobortis massa. Duis convallis rhoncus orci, ut tempor massa maximus at. Integer sollicitudin justo tellus, vel venenatis lacus cursus ac. Nulla dignissim lobortis luctus. Maecenas euismod augue non ullamcorper sagittis. Vestibulum faucibus vehicula nunc, sodales dignissim enim laoreet et. Etiam quis turpis rhoncus, porta urna at, viverra magna. Phasellus ex nisi, sodales eu elit et, sollicitudin porta erat. Nam accumsan non mauris nec elementum.\nCras pellentesque elementum sem et pharetra. Mauris cursus cursus velit, id iaculis dui gravida sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel consectetur felis. Sed feugiat ut enim eu congue. Nam finibus diam in semper efficitur. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis vel libero bibendum, dictum dolor eget, tempus dolor. Etiam velit nibh, auctor vel ligula quis, rutrum semper augue. Nulla rhoncus imperdiet mauris, vel elementum turpis posuere eget. Sed quis velit mi. Mauris porttitor fermentum nisl, vitae faucibus nibh mollis sit amet. Sed eget velit fringilla, vulputate massa a, rhoncus enim. Nulla suscipit, eros id cursus vulputate, quam dui tincidunt ipsum, pulvinar dictum augue metus eget est. Vestibulum ullamcorper lacus ut lacus imperdiet, in bibendum ligula blandit.\nPellentesque ac lectus ac sapien sodales viverra. Praesent eleifend commodo sodales. Nunc risus nisl, placerat quis egestas id, ultricies in massa. Pellentesque tempus nisl eget convallis malesuada. Sed sed porta eros, eu scelerisque ante. Vivamus hendrerit, libero eu ultricies imperdiet, mauris nisi blandit dui, sed sodales sem neque vitae nibh. Duis blandit, nisi in ultrices mollis, felis dolor tincidunt sapien, vitae hendrerit augue nibh sed justo. Quisque egestas et metus eu dapibus. Maecenas condimentum porta est, ac hendrerit augue tincidunt non. Aliquam erat volutpat. Sed in mi tortor. Sed id ex massa.\nMauris euismod rhoncus justo dictum iaculis. Vestibulum dictum libero sit amet lectus porttitor, non vehicula odio imperdiet. Nullam imperdiet sit amet magna in gravida. Proin feugiat lacus eu hendrerit volutpat. Vivamus efficitur rutrum lectus et dapibus. Quisque vehicula, velit in fermentum pretium, quam nibh congue libero, a condimentum lacus ligula id quam. Maecenas fringilla sed est in dapibus. Ut laoreet sit amet nisi eget venenatis. Integer sit amet ipsum sit amet tortor molestie volutpat quis vitae ipsum.\nSed commodo ex at tincidunt dictum. Nunc hendrerit erat lacus, ut vehicula nibh pharetra ut. Proin venenatis urna et tellus semper, nec hendrerit mi fermentum. Morbi rhoncus cursus diam varius varius. Nunc eget sem sit amet leo gravida tristique. Praesent pretium lorem vitae sagittis dictum. Fusce at ornare neque, vel posuere mauris.\nPellentesque faucibus pellentesque ipsum, a gravida ligula aliquam sed. In bibendum cursus massa, tristique suscipit magna sagittis sed. Etiam porta ex sed purus dapibus, vitae pulvinar ante ornare. Morbi quis nulla id nulla ornare laoreet. Aenean eget ex non nisl egestas commodo a vitae purus. Donec sapien nisl, faucibus nec ultrices nec, imperdiet a mi. Sed ornare elementum purus, at faucibus justo luctus in. Fusce convallis, purus ac aliquet vestibulum, turpis sem sodales velit, non posuere dui ex vitae mi. Aliquam ligula velit, facilisis ac neque nec, ultrices ullamcorper orci. Etiam in lorem velit. Integer malesuada sollicitudin scelerisque. Nunc rutrum ex in tortor faucibus, quis tempor dolor accumsan. Morbi eu odio in erat iaculis tristique. Sed ut metus eu nibh vulputate bibendum.\nMorbi maximus erat nulla, ornare pretium dui interdum nec. Fusce facilisis nisi augue, quis molestie nunc efficitur sit amet. Nullam iaculis vestibulum velit at efficitur. Phasellus fermentum libero sagittis rutrum egestas. Nam vitae sem nec felis ultricies convallis eu eu ipsum. Ut nec diam at turpis rhoncus malesuada a feugiat dui. Donec pharetra ex eget orci efficitur, vitae semper quam ultrices. Proin semper quis velit vel pulvinar. Sed velit velit, pretium et lectus eget, lobortis varius ex. Proin egestas feugiat placerat. Cras nibh nisi, placerat sed dictum ac, volutpat eleifend quam. Proin auctor metus pretium dolor efficitur, ac faucibus turpis ornare. Sed volutpat eu augue sed cursus.\nVivamus gravida sit amet nulla nec convallis. Vestibulum sed porttitor dolor, auctor consectetur arcu. Donec odio quam, varius in tellus id, dignissim tristique eros. In vitae urna a urna condimentum tincidunt. Cras non viverra arcu, nec venenatis odio. Aliquam erat volutpat. Maecenas ipsum diam, lobortis non ultricies a, efficitur et quam.\nQuisque tellus diam, tempor at ipsum ut, hendrerit egestas massa. Ut quis purus lectus. Praesent eu pellentesque libero, ut ullamcorper tortor. Cras dolor eros, malesuada eget ullamcorper eu, pulvinar eu diam. Vestibulum ac blandit odio. Curabitur dapibus pretium massa sed euismod. Mauris elementum urna dolor, ac pharetra magna vehicula ac.\nCras interdum metus eget ipsum consequat ullamcorper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris facilisis euismod ornare. Integer quis scelerisque dolor. Proin finibus magna quis sapien pellentesque, quis cursus dolor accumsan. Nulla sit amet ex non eros porta lobortis nec nec enim. Nunc quis condimentum nisi. In vitae nulla ante.\nAliquam dignissim sed diam quis laoreet. Morbi quis sodales velit, vitae porta est. Suspendisse ultrices in massa vitae pulvinar. Praesent consectetur, ligula egestas vulputate rutrum, felis nisi egestas dui, sed tincidunt ligula metus id odio. Proin lobortis pharetra metus nec gravida. Sed iaculis tempus tortor, at volutpat libero vulputate id. Donec augue libero, rutrum ut arcu a, interdum euismod quam. Donec aliquam posuere sem vitae placerat. Sed laoreet non magna nec cursus. In vitae turpis id nisl malesuada condimentum ac sit amet massa.\nEtiam nec lorem a odio porta ornare. Ut semper rhoncus ex, vitae consequat nisi fermentum luctus. Nunc egestas a lorem vitae aliquet. Proin euismod nunc ac ante faucibus, eget egestas augue efficitur. Praesent ac vulputate erat, eget iaculis nisl. Cras ullamcorper semper justo, a condimentum purus semper ut. Quisque dapibus et quam a elementum.\nVestibulum congue arcu arcu, at sodales sapien auctor a. Nulla sit amet felis ac lectus congue cursus non non ante. Nulla iaculis gravida egestas. Integer consequat ornare condimentum. In hac habitasse platea dictumst. Fusce ut augue efficitur, accumsan tellus sed, placerat sapien. Sed sit amet condimentum metus. Nulla vel ligula libero. Donec quis leo maximus, dictum ipsum et, imperdiet urna. Phasellus sodales massa sed convallis tristique.\nCurabitur at lectus condimentum turpis sagittis tincidunt eu eget lacus. Vestibulum malesuada vulputate erat at dapibus. Mauris sed sem vel purus imperdiet iaculis eget non arcu. Fusce scelerisque massa turpis, vel bibendum metus hendrerit ac. Quisque ac vestibulum massa. Phasellus efficitur urna semper, ultricies tortor sit amet, feugiat mi. Etiam consequat sed libero at dignissim. Morbi ante ex, rutrum non ex nec, dictum euismod tortor. Mauris sit amet sodales odio. In venenatis, odio eget dictum facilisis, lectus quam sagittis leo, eu tristique nisl lorem id eros. Quisque vitae sagittis eros, interdum mollis nunc. Morbi finibus mollis volutpat.",
+									"description": "Titulo del Libro",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris lorem, rutrum et sodales vel, eleifend sed elit. Morbi maximus libero vitae justo tincidunt pharetra. Donec non nisi libero. Mauris congue risus quis congue pretium. Morbi ultricies luctus justo, eu eleifend massa condimentum at. Nulla laoreet lacus ligula, in consequat orci sagittis vitae. Vestibulum iaculis, neque ut molestie posuere, sem neque feugiat turpis, ut mollis arcu mi eget diam. Suspendisse est orci, ultrices in gravida in, volutpat nec mi.\n\nDonec accumsan nunc a sapien dignissim, ac suscipit odio aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla sit amet nisl tincidunt, auctor urna vulputate, ultrices est. Donec ut vestibulum mauris, id egestas nibh. Donec dictum arcu vel maximus scelerisque. Mauris accumsan sem sit amet dictum tristique. Sed consequat purus iaculis erat dictum pharetra eu eu magna. Donec auctor sodales ligula ac dapibus. Donec quis nulla consequat, imperdiet felis in, ullamcorper justo. Suspendisse potenti. Proin pretium enim at elit ultrices, vel gravida massa eleifend. Vestibulum tristique, mauris pellentesque semper aliquam, massa mauris dapibus nibh, ac dapibus mauris nibh vel ipsum. Duis lorem urna, suscipit malesuada quam a, aliquet aliquet eros. Proin auctor tempor magna, vel blandit libero elementum non. Curabitur condimentum dolor vel purus placerat, vitae vestibulum mi luctus.\n\nMauris quis neque vel diam lobortis sagittis nec in ipsum. Duis convallis hendrerit maximus. Aliquam finibus placerat ullamcorper. Nunc varius vestibulum condimentum. Nunc posuere justo a neque suscipit aliquam. Sed vehicula, velit nec tempor imperdiet, risus mauris pulvinar dolor, vel cursus nisi quam at lorem. Fusce venenatis tortor iaculis, semper diam nec, dignissim ex. Sed suscipit semper ante, sagittis posuere est laoreet a.\n\nEtiam ut dapibus lorem. Morbi sagittis et enim sit amet dapibus. Cras feugiat at justo ut convallis. Nunc massa neque, gravida et leo a, interdum interdum nulla. Integer ornare in tellus a convallis. Duis et tincidunt metus. Phasellus gravida dignissim nisi, at posuere metus congue in. In eget varius lacus. Sed tempor est at urna malesuada tristique. Cras pharetra, odio eu tempus iaculis, odio ante sodales ante, vel ullamcorper nisi libero nec leo. Praesent et ipsum vel justo blandit volutpat. Sed quis arcu in nulla vestibulum ornare.\n\nPraesent ac sapien a neque sagittis rhoncus sed sed neque. Morbi tempor, orci et blandit pellentesque, enim est finibus erat, non vulputate erat dolor eget turpis. Sed at efficitur purus. Sed hendrerit erat id rutrum malesuada. Nullam convallis orci et risus tincidunt, quis pretium turpis pulvinar. Mauris id rutrum risus, at accumsan purus. Proin maximus elementum odio vitae euismod. Quisque vitae lectus vel neque feugiat convallis in sed nunc. Curabitur nec augue in nunc hendrerit molestie at at lectus. Integer volutpat scelerisque erat id faucibus. Maecenas congue urna diam, non ullamcorper lacus elementum eget. Nunc a nisi id nunc porta malesuada. Nunc tempus ullamcorper lectus, eget mattis libero rhoncus nec. Aliquam eu mi sodales, cursus quam ut, rutrum lorem. Quisque pulvinar est in imperdiet dapibus.\n\nIn hac habitasse platea dictumst. Sed in mattis augue. In hac habitasse platea dictumst. Sed interdum, enim nec eleifend dictum, tortor ante vehicula tellus, a porttitor risus tellus a augue. Nullam varius non est et tincidunt. Sed nec risus orci. Maecenas euismod leo ut mauris dignissim, vel fringilla tortor imperdiet.\n\nVivamus maximus eget ante nec vulputate. Etiam justo libero, aliquet sed purus vel, feugiat auctor ante. Nam pharetra laoreet lectus, et accumsan lectus. Mauris porttitor volutpat semper. Curabitur non posuere sapien, ut efficitur odio. Fusce in nulla sed lacus sagittis feugiat. Aenean quis aliquet arcu. Phasellus lobortis cursus metus in placerat. Curabitur euismod est vel purus rhoncus, eu ullamcorper ante vestibulum. Nunc finibus purus ante, ac posuere eros sagittis et. Nulla imperdiet quis nulla quis tincidunt. Mauris vestibulum velit id velit iaculis luctus. Suspendisse egestas, leo nec sollicitudin bibendum, lacus dui ornare libero, ut feugiat leo elit at ligula. Nullam rhoncus sapien vel velit bibendum, ornare dapibus libero pellentesque. Mauris eget tristique erat. Sed et metus nec nulla pharetra sodales non id elit.\n\nNam molestie risus lacus, vel maximus diam interdum non. Integer in felis non risus aliquam ultricies. Ut sit amet aliquam quam, tincidunt varius tortor. Proin sit amet luctus augue. Sed ut odio ut leo pulvinar molestie. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus luctus pellentesque cursus.\n\nUt in orci massa. Nunc rhoncus eros sed justo elementum, eu luctus nisi tincidunt. Cras ac elementum nunc, in viverra urna. Nulla facilisi. Nunc sollicitudin id enim in ullamcorper. Integer congue aliquet volutpat. Duis sem lorem, porta vel urna at, feugiat volutpat nisi.\n\nDuis eget semper lacus, eget interdum eros. Quisque mollis in ante quis luctus. Sed ac consequat turpis. Aenean id scelerisque enim, a ullamcorper neque. Maecenas et suscipit libero. Etiam at dolor non erat vulputate auctor. Nullam pellentesque tortor molestie convallis faucibus. Nullam lacinia, justo viverra egestas efficitur, felis lectus tristique elit, ut porta nunc neque sed magna. Aliquam feugiat interdum semper. Integer vitae justo dapibus, dignissim sapien at, hendrerit augue. Ut in magna vitae neque efficitur pulvinar.\n\nClass aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse potenti. Cras turpis dui, hendrerit vitae tincidunt id, euismod nec nunc. Mauris nec nisl in felis convallis vestibulum. Cras sit amet purus volutpat, facilisis augue quis, volutpat nunc. Cras auctor maximus tortor, in varius neque condimentum sed. Vestibulum eget lorem erat. Duis volutpat ligula sit amet erat fermentum, id venenatis nisi venenatis. Vivamus tincidunt, arcu et eleifend consectetur, quam lectus commodo justo, ac tincidunt urna arcu quis erat.\n\nDonec sed metus vitae nulla lacinia ullamcorper. Aenean eu arcu quis lectus luctus consectetur. Nam elementum elit nibh, cursus semper augue dictum id. Donec vel ipsum at sapien vulputate accumsan. Cras hendrerit orci quis nisi vehicula aliquam. Etiam ornare urna lacus, vitae maximus mi blandit et. Curabitur vel cursus orci, sagittis aliquet libero. Etiam quis iaculis felis. Pellentesque vel lectus dui. Mauris feugiat orci eget enim faucibus pulvinar. Aliquam sodales lectus eget massa cursus, nec mattis turpis elementum. Aliquam tristique augue ut ullamcorper tempus. In iaculis mattis tincidunt. Pellentesque vel ornare libero, eget accumsan ante. Morbi ut convallis massa, et cursus ipsum.\n\nIn sollicitudin tellus et ipsum luctus semper. Praesent mattis varius nulla, in bibendum ligula bibendum quis. Curabitur auctor mattis leo eget ultrices. Vivamus eget varius tellus. Praesent porttitor bibendum diam, eget ultricies tortor dapibus sit amet. Nulla a diam vitae lacus gravida congue. Suspendisse malesuada nunc turpis. Integer ipsum tortor, dictum in vestibulum sed, ullamcorper ac nisi. Curabitur enim diam, rutrum eu tincidunt ac, volutpat sit amet justo.\n\nSed condimentum pharetra nisl, vel feugiat augue sagittis eget. Nunc interdum mollis tortor at luctus. Aliquam dignissim, lectus et lobortis tincidunt, ex nisl tincidunt dui, eget tempus metus dui ut lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus nulla quam, iaculis eu varius in, scelerisque eget lacus. Sed volutpat accumsan odio, a aliquam risus pharetra a. Aenean nec elit libero. Nullam mattis lorem ultrices porttitor mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam accumsan neque orci, a posuere mauris finibus eu. Maecenas ante velit, mollis in ultrices vitae, molestie ac lectus. Vivamus urna felis, cursus et suscipit vel, venenatis dapibus nunc. Nam eu condimentum dolor. Curabitur blandit felis eu nunc porttitor ullamcorper.\n\nCras placerat neque dignissim aliquam venenatis. Ut nec felis nec odio vulputate convallis. Suspendisse malesuada mauris quis justo malesuada elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc lectus enim, laoreet vel egestas non, aliquam ut erat. Curabitur eget mi congue mauris sagittis tempor faucibus et risus. Nulla rutrum, neque id ultricies bibendum, orci erat interdum dui, vel cursus enim lectus a felis. Quisque posuere, felis sit amet tincidunt feugiat, magna enim maximus quam, in scelerisque metus lorem eget nisl.\n\nDonec vulputate arcu non elit feugiat gravida. Mauris pulvinar neque vel ullamcorper fringilla. Vestibulum commodo, odio ut dignissim tristique, ante turpis venenatis mi, ut bibendum mauris tellus sed mi. Ut tristique sapien quis ullamcorper laoreet. Vivamus ac rutrum lorem. In blandit ornare neque, eu imperdiet turpis suscipit in. Integer mattis sem urna, vitae elementum metus luctus eget. Donec a lobortis sapien. Nunc in ante at turpis porttitor ornare quis et felis. Etiam diam neque, congue et vestibulum id, consectetur ut mi. Suspendisse nulla risus, congue sed dictum ac, facilisis vel odio. Nunc ultrices, lacus vitae tristique interdum, dui tortor lacinia sem, sed elementum est lorem in felis. Morbi ac neque ut lacus mollis tristique. Proin eget eros eu ipsum ullamcorper sodales eu sit amet mi. Vivamus porta luctus ipsum, a gravida ligula facilisis eu.\n\nMorbi a interdum tellus. Nam egestas lacinia nibh a blandit. Nullam vel egestas ex. Suspendisse lacinia lobortis massa. Duis convallis rhoncus orci, ut tempor massa maximus at. Integer sollicitudin justo tellus, vel venenatis lacus cursus ac. Nulla dignissim lobortis luctus. Maecenas euismod augue non ullamcorper sagittis. Vestibulum faucibus vehicula nunc, sodales dignissim enim laoreet et. Etiam quis turpis rhoncus, porta urna at, viverra magna. Phasellus ex nisi, sodales eu elit et, sollicitudin porta erat. Nam accumsan non mauris nec elementum.\n\nCras pellentesque elementum sem et pharetra. Mauris cursus cursus velit, id iaculis dui gravida sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel consectetur felis. Sed feugiat ut enim eu congue. Nam finibus diam in semper efficitur. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis vel libero bibendum, dictum dolor eget, tempus dolor. Etiam velit nibh, auctor vel ligula quis, rutrum semper augue. Nulla rhoncus imperdiet mauris, vel elementum turpis posuere eget. Sed quis velit mi. Mauris porttitor fermentum nisl, vitae faucibus nibh mollis sit amet. Sed eget velit fringilla, vulputate massa a, rhoncus enim. Nulla suscipit, eros id cursus vulputate, quam dui tincidunt ipsum, pulvinar dictum augue metus eget est. Vestibulum ullamcorper lacus ut lacus imperdiet, in bibendum ligula blandit.\n\nPellentesque ac lectus ac sapien sodales viverra. Praesent eleifend commodo sodales. Nunc risus nisl, placerat quis egestas id, ultricies in massa. Pellentesque tempus nisl eget convallis malesuada. Sed sed porta eros, eu scelerisque ante. Vivamus hendrerit, libero eu ultricies imperdiet, mauris nisi blandit dui, sed sodales sem neque vitae nibh. Duis blandit, nisi in ultrices mollis, felis dolor tincidunt sapien, vitae hendrerit augue nibh sed justo. Quisque egestas et metus eu dapibus. Maecenas condimentum porta est, ac hendrerit augue tincidunt non. Aliquam erat volutpat. Sed in mi tortor. Sed id ex massa.\n\nMauris euismod rhoncus justo dictum iaculis. Vestibulum dictum libero sit amet lectus porttitor, non vehicula odio imperdiet. Nullam imperdiet sit amet magna in gravida. Proin feugiat lacus eu hendrerit volutpat. Vivamus efficitur rutrum lectus et dapibus. Quisque vehicula, velit in fermentum pretium, quam nibh congue libero, a condimentum lacus ligula id quam. Maecenas fringilla sed est in dapibus. Ut laoreet sit amet nisi eget venenatis. Integer sit amet ipsum sit amet tortor molestie volutpat quis vitae ipsum.\n\nSed commodo ex at tincidunt dictum. Nunc hendrerit erat lacus, ut vehicula nibh pharetra ut. Proin venenatis urna et tellus semper, nec hendrerit mi fermentum. Morbi rhoncus cursus diam varius varius. Nunc eget sem sit amet leo gravida tristique. Praesent pretium lorem vitae sagittis dictum. Fusce at ornare neque, vel posuere mauris.\n\nPellentesque faucibus pellentesque ipsum, a gravida ligula aliquam sed. In bibendum cursus massa, tristique suscipit magna sagittis sed. Etiam porta ex sed purus dapibus, vitae pulvinar ante ornare. Morbi quis nulla id nulla ornare laoreet. Aenean eget ex non nisl egestas commodo a vitae purus. Donec sapien nisl, faucibus nec ultrices nec, imperdiet a mi. Sed ornare elementum purus, at faucibus justo luctus in. Fusce convallis, purus ac aliquet vestibulum, turpis sem sodales velit, non posuere dui ex vitae mi. Aliquam ligula velit, facilisis ac neque nec, ultrices ullamcorper orci. Etiam in lorem velit. Integer malesuada sollicitudin scelerisque. Nunc rutrum ex in tortor faucibus, quis tempor dolor accumsan. Morbi eu odio in erat iaculis tristique. Sed ut metus eu nibh vulputate bibendum.\n\nMorbi maximus erat nulla, ornare pretium dui interdum nec. Fusce facilisis nisi augue, quis molestie nunc efficitur sit amet. Nullam iaculis vestibulum velit at efficitur. Phasellus fermentum libero sagittis rutrum egestas. Nam vitae sem nec felis ultricies convallis eu eu ipsum. Ut nec diam at turpis rhoncus malesuada a feugiat dui. Donec pharetra ex eget orci efficitur, vitae semper quam ultrices. Proin semper quis velit vel pulvinar. Sed velit velit, pretium et lectus eget, lobortis varius ex. Proin egestas feugiat placerat. Cras nibh nisi, placerat sed dictum ac, volutpat eleifend quam. Proin auctor metus pretium dolor efficitur, ac faucibus turpis ornare. Sed volutpat eu augue sed cursus.\n\nVivamus gravida sit amet nulla nec convallis. Vestibulum sed porttitor dolor, auctor consectetur arcu. Donec odio quam, varius in tellus id, dignissim tristique eros. In vitae urna a urna condimentum tincidunt. Cras non viverra arcu, nec venenatis odio. Aliquam erat volutpat. Maecenas ipsum diam, lobortis non ultricies a, efficitur et quam.\n\nQuisque tellus diam, tempor at ipsum ut, hendrerit egestas massa. Ut quis purus lectus. Praesent eu pellentesque libero, ut ullamcorper tortor. Cras dolor eros, malesuada eget ullamcorper eu, pulvinar eu diam. Vestibulum ac blandit odio. Curabitur dapibus pretium massa sed euismod. Mauris elementum urna dolor, ac pharetra magna vehicula ac.\n\nCras interdum metus eget ipsum consequat ullamcorper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris facilisis euismod ornare. Integer quis scelerisque dolor. Proin finibus magna quis sapien pellentesque, quis cursus dolor accumsan. Nulla sit amet ex non eros porta lobortis nec nec enim. Nunc quis condimentum nisi. In vitae nulla ante.\n\nAliquam dignissim sed diam quis laoreet. Morbi quis sodales velit, vitae porta est. Suspendisse ultrices in massa vitae pulvinar. Praesent consectetur, ligula egestas vulputate rutrum, felis nisi egestas dui, sed tincidunt ligula metus id odio. Proin lobortis pharetra metus nec gravida. Sed iaculis tempus tortor, at volutpat libero vulputate id. Donec augue libero, rutrum ut arcu a, interdum euismod quam. Donec aliquam posuere sem vitae placerat. Sed laoreet non magna nec cursus. In vitae turpis id nisl malesuada condimentum ac sit amet massa.\n\nEtiam nec lorem a odio porta ornare. Ut semper rhoncus ex, vitae consequat nisi fermentum luctus. Nunc egestas a lorem vitae aliquet. Proin euismod nunc ac ante faucibus, eget egestas augue efficitur. Praesent ac vulputate erat, eget iaculis nisl. Cras ullamcorper semper justo, a condimentum purus semper ut. Quisque dapibus et quam a elementum.\n\nVestibulum congue arcu arcu, at sodales sapien auctor a. Nulla sit amet felis ac lectus congue cursus non non ante. Nulla iaculis gravida egestas. Integer consequat ornare condimentum. In hac habitasse platea dictumst. Fusce ut augue efficitur, accumsan tellus sed, placerat sapien. Sed sit amet condimentum metus. Nulla vel ligula libero. Donec quis leo maximus, dictum ipsum et, imperdiet urna. Phasellus sodales massa sed convallis tristique.\n\nCurabitur at lectus condimentum turpis sagittis tincidunt eu eget lacus. Vestibulum malesuada vulputate erat at dapibus. Mauris sed sem vel purus imperdiet iaculis eget non arcu. Fusce scelerisque massa turpis, vel bibendum metus hendrerit ac. Quisque ac vestibulum massa. Phasellus efficitur urna semper, ultricies tortor sit amet, feugiat mi. Etiam consequat sed libero at dignissim. Morbi ante ex, rutrum non ex nec, dictum euismod tortor. Mauris sit amet sodales odio. In venenatis, odio eget dictum facilisis, lectus quam sagittis leo, eu tristique nisl lorem id eros. Quisque vitae sagittis eros, interdum mollis nunc. Morbi finibus mollis volutpat.",
+									"description": "Descripcion del Libro",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "2432",
+									"description": "Cantidad  de libros disponible",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/books",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrow",
+			"item": [
+				{
+					"name": "borrows.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/49779",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"49779"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/1",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "book_id",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{vhost}}/borrows",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{vhost}}/borrows/2344",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"2344"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.books.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/1/books",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"1",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "borrows.users.index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/1/users",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Unknown",
+			"item": [
+				{
+					"name": "UnknownRoute 1",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/users/12",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"users",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UnknownRoute 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/books/1/users",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"books",
+								"1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UnknownRoute 3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{vhost}}/borrows/user/23/()",
+							"host": [
+								"{{vhost}}"
+							],
+							"path": [
+								"borrows",
+								"user",
+								"23",
+								"()"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
